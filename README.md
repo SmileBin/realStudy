@@ -1,2 +1,2 @@
 # realStudy
-with Enthusiasm.. for my future. Good Luck!
+with Enthusiasm.. for our future. Good Luck!!!
