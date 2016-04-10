@@ -4,8 +4,8 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
     <!-- transaction 설정 -->
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -21,12 +21,12 @@
 		<tx:attributes>
 			<tx:method name="*" rollback-for="Exception"/>
 			<!-- 
-			<tx:method name="retrieve" read-only="true"/>
+			<tx:method name="retrieve*" read-only="true"/>
 			<tx:method name="create*" rollback-for="Exception"/>
 			<tx:method name="update*" rollback-for="Exception"/>
 			<tx:method name="delete*" rollback-for="Exception"/>
 			<tx:method name="save*" rollback-for="Exception"/>
-			<tx:method name="process" rollback-for="Exception"/>
+			<tx:method name="process*" rollback-for="Exception"/>
 			<tx:method name="bat*" propagation="NESTED" rollback-for="Exception"/>
 			<tx:method name="*" propagation="NESTED" rollback-for="Exception"/>
 			 -->

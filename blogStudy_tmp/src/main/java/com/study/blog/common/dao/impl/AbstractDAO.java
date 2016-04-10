@@ -1,4 +1,4 @@
-package com.study.blog.common.dao;
+package com.study.blog.common.dao.impl;
 
 import java.util.List;
 

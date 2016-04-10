@@ -1,1 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 데이터 베이스 컬럼명 형태인 A_COLUMN을 CamelCase 형태의 자바 프로퍼티명 형태인 aColumn 으로 자동 맵핑 -->
+	</settings>
+	<typeAliases>
+	</typeAliases>
+	
+	
+
+</configuration>

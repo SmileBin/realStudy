@@ -5,7 +5,8 @@
 
 <mapper namespace="com.study.blog.dao.BlogDaoInterface">  
 	<select id="list" resultType="com.study.blog.test.model.TemplateModel" >
-		SELECT BID, BNAME, BTITLE, BCONTENT, BDATE, BHIT, BGROUP, BSTEP, BINTENT FROM TEMPLATE
+		select 1 from dual
+		--SELECT BID, BNAME, BTITLE, BCONTENT, BDATE, BHIT, BGROUP, BSTEP, BINTENT FROM TEMPLATE
 	</select>
 	
 	<!-- update id="update" parameterType="org.springframework.ui.Model">

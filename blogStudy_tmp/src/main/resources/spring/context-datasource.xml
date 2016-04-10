@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:context="http://springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- 환경설정 기본정보를 globals.properties 에서 참조하도록 propertyConfigurer 설정  -->
 	<!-- bean id="propertyConfigurer"
@@ -20,17 +22,14 @@
     <!-- datasource 설정(propertyConfigurer 활용) -->
     <!-- alias name="dataSource-${db.type}" alias="dataSource" / -->
     <!-- alias name="dataSource-${Globals.DbType}" alias="egov.dataSource" / -->
+   	
+   	<util:properties id="config" location="classpath:/env/db.properties"/>
    
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <!-- property name="driverClassName" value="${db.driver}"/>
-        <property name="url" value="${db.url}" />
-        <property name="username" value="${db.username}"/>
-        <property name="password" value="${db.password}"/ -->
-        
-        <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:tcp://localhost/~/test" />
-        <property name="username" value="sa"/>
-        <property name="password" value=""/>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="#{config['db.driver']}"/>
+        <property name="url" value="#{config['db.url']}" />
+        <property name="username" value="#{config['db.username']}"/>
+        <property name="password" value="#{config['db.password']}"/>
 	</bean>
 
 	

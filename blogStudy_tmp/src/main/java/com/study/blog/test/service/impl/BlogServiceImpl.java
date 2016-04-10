@@ -1,6 +1,7 @@
 package com.study.blog.test.service.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -18,8 +19,11 @@ import com.study.blog.test.service.BlogService;
 @Service("blogServiceTemplate")
 public class BlogServiceImpl implements BlogService {
 
-	@Resource(name="commonDao")
-	private CommonDAO commonDao;
+	//@Resource(name="commonDao")
+	//private CommonDAO commonDao;
+	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	TransactionTemplate transactionTemplate;
 	
@@ -38,7 +42,8 @@ public class BlogServiceImpl implements BlogService {
 //		sqlSession.getSqlMapClientTemplate
 		//BlogDaoInterface dao = sqlSession.getMapper(BlogDaoInterface.class);
 	//	return commonDao.selectList("com.study.blog.test.model.TemplateModel");
-		return null;
+		List<TemplateModel> result = sqlSession.selectList("com.study.blog.dao.BlogDaoInterface");
+		return (ArrayList<TemplateModel>) result;
 	}
 	
 	@Override
